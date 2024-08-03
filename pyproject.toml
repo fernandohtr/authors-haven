@@ -6,6 +6,7 @@ authors = ["Fernando Toledo <fernandohtr@gmail.com>"]
 
 [tool.poetry.dependencies]
 python = "^3.12"
+djangorestframework = "^3.15.2"
 
 
 [build-system]
