@@ -9,6 +9,26 @@ python = "^3.12"
 djangorestframework = "^3.15.2"
 
 
+[tool.poetry.group.dev.dependencies]
+ruff = "^0.5.6"
+
+[tool.ruff]
+line-length =  120
+extend-exclude = ["migrations"]
+
+[tool.ruff.lint]
+preview = true
+select = ["I", "F", "E", "W", "PL", "PT"]
+ignore = ["E402", "F811"]
+
+[tool.ruff.format]
+preview = true
+quote-style = "double"
+
+[tool.pytest.ini_options]
+pythonpath = "."
+addopts = "-p no:warnings"
+
 [build-system]
 requires = ["poetry-core"]
 build-backend = "poetry.core.masonry.api"
