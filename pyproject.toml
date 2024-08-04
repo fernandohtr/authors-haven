@@ -19,7 +19,7 @@ extend-exclude = ["migrations"]
 [tool.ruff.lint]
 preview = true
 select = ["I", "F", "E", "W", "PL", "PT"]
-ignore = ["E402", "F811"]
+ignore = ["E402", "F811", "PLC0415"]
 
 [tool.ruff.format]
 preview = true
