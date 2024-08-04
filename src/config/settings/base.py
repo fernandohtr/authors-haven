@@ -3,9 +3,7 @@ from pathlib import Path
 
 ROOT_DIR = Path(__file__).resolve().parent.parent.parent
 APP_DIR = ROOT_DIR / "v1"
-SECRET_KEY = "7c4DquI4RAP465XLYMCJQuAip1OVU4tbyUCP06RaDbFjHLeXj27WaA"
 DEBUG = os.environ.get("DJANGO_DEBUG", False)
-ALLOWED_HOSTS = []
 DJANGO_APPS = [
     "django.contrib.admin",
     "django.contrib.auth",
