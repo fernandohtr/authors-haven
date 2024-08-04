@@ -18,7 +18,11 @@ THIRD_PARTY_APPS = [
     "corsheaders",
     "drf_spectacular",
 ]
-LOCAL_APPS = []
+LOCAL_APPS = [
+    "v1.profiles",
+    "v1.common",
+    "v1.users",
+]
 INSTALLED_APPS = DJANGO_APPS + THIRD_PARTY_APPS + LOCAL_APPS
 MIDDLEWARE = [
     "django.middleware.security.SecurityMiddleware",
