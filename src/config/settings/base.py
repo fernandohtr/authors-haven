@@ -13,6 +13,7 @@ DJANGO_APPS = [
     "django.contrib.sessions",
     "django.contrib.messages",
     "django.contrib.staticfiles",
+    "django.contrib.sites",
 ]
 THIRD_PARTY_APPS = [
     "rest_framework",
@@ -69,5 +70,6 @@ LANGUAGE_CODE = "en-us"
 TIME_ZONE = "America/Sao_Paulo"
 USE_I18N = True
 USE_TZ = True
+SITE_ID = 1
 STATIC_URL = "static/"
 DEFAULT_AUTO_FIELD = "django.db.models.BigAutoField"
