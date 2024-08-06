@@ -1,4 +1,4 @@
-poetry.locl
+poetry.lock
 pyproject.toml
 **/.git
 .gitignore
