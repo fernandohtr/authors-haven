@@ -103,7 +103,10 @@ LOGGING = {
     "version": 1,
     "disable_existing_loggers": False,
     "formatters": {
-        "verbose": {"format": "{levelname} {name} {asctime} {module} {process:d} {thread:d} {message}s"},
+        "verbose": {
+            "format": "[%(levelname)s] [%(name)-12s] [%(asctime)s] [%(module)s] "
+            "[%(process)d] [%(thread)d] %(message)s",
+        }
     },
     "handlers": {
         "console": {
