@@ -1,3 +1,5 @@
+
+
 local:
 	poetry export -f requirements.txt --without-hashes --without-urls -o requirements/local.txt
 
@@ -24,3 +26,12 @@ down:
 
 logs:
 	docker compose -f local.yml logs -f
+
+backup:
+	docker compose -f local.yml exec postgres backup.sh
+
+list-backup:
+	docker compose -f local.yml exec postgres backups.sh
+
+restore-backup:
+	docker compose -f local.yml exec postgres restore.sh $(BACKUP_FILE)
