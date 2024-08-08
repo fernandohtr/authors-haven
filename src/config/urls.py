@@ -12,3 +12,7 @@ DRF_SPECTACULAR_URLS = [
 urlpatterns = [
     path(settings.ADMIN_URL, admin.site.urls),
 ] + DRF_SPECTACULAR_URLS
+
+admin.site.site_header = "Authors Haven API Admin"
+admin.site.site_title = "Authors Haven API Admin Portal"
+admin.site.index_title = "Welcome to Authors Haven API Portal"
