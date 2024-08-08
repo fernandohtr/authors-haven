@@ -8,12 +8,12 @@ from v1.users.models import User
 
 @admin.register(User)
 class UserAdmin(BaseUserAdmin):
-    ordering = ["email"]
+    ordering = ("email")
     form = UserChangeForm
     add_form = UserCreationForm
     model = User
 
-    list_display = [
+    list_display = (
         "pkid",
         "id",
         "email",
@@ -21,17 +21,17 @@ class UserAdmin(BaseUserAdmin):
         "last_name",
         "is_staff",
         "is_active",
-    ]
-    list_display_links = [
+    )
+    list_display_links = (
         "pkid",
         "id",
         "email",
-    ]
-    list_filter = [
+    )
+    list_filter = (
         "email",
         "is_staff",
         "is_active",
-    ]
+    )
     fieldsets = (
         (_("Login Credentials"), {"fields": ("email", "password")}),
         (_("Personal Info"), {"fields": ("first_name", "last_name")}),
@@ -41,7 +41,6 @@ class UserAdmin(BaseUserAdmin):
         ),
         (_("Important Dates"), {"fields": ("last_login", "date_joined")}),
     )
-
     add_fieldsets = (
         None,
         {
@@ -49,8 +48,8 @@ class UserAdmin(BaseUserAdmin):
             "fields": ("email", "first_name", "last_name", "passwrod1", "passwrod2"),
         },
     )
-    search_fields = [
+    search_fields = (
         "email",
         "first_name",
         "last_name",
-    ]
+    )
