@@ -7,10 +7,10 @@ prod:
 	poetry export -f requirements.txt --without-hashes --without-urls -o requirements/production.txt
 
 lint:
-	@${DOCKER_LOCAL} exec api ruff check . && ruff check . --diff
+	@${DOCKER_LOCAL} exec api sh -c "ruff check . && ruff check . --diff"
 
 format:
-	@${DOCKER_LOCAL} exec api ruff check . --fix && ruff format .
+	@${DOCKER_LOCAL} exec api sh -c "ruff check . --fix && ruff format ."
 
 build:
 	${DOCKER_LOCAL} up -d --build --remove-orphans
