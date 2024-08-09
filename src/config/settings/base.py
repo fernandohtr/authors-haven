@@ -14,10 +14,12 @@ DJANGO_APPS = [
     "django.contrib.sites",
 ]
 THIRD_PARTY_APPS = [
-    "rest_framework",
     "corsheaders",
-    "drf_spectacular",
+    "django_countries",
     "djcelery_email",
+    "drf_spectacular",
+    "phonenumber_field",
+    "rest_framework",
 ]
 LOCAL_APPS = [
     "v1.profiles",
