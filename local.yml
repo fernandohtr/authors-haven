@@ -17,6 +17,7 @@ services:
     depends_on:
       - postgres
       - mailhog
+      - rabbitmq
     command: /start.sh
     networks:
       - authors-api
@@ -39,6 +40,51 @@ services:
     container_name: authors-mailhog
     ports:
       - 8025:8025
+    networks:
+      - authors-api
+
+  rabbitmq:
+    image: rabbitmq:3.13-management-alpine
+    container_name: authors-rabbitmq
+    ports:
+      - 15672:15672
+    networks:
+      - authors-api
+
+  celery_worker:
+    build:
+      context: .
+      dockerfile: ./docker/local/django/Dockerfile
+    container_name: authors-celery-worker
+    command: /start-celery-worker.sh
+    volumes:
+      - ./src:/app
+    env_file:
+      - ./.envs/.local/.django
+      - ./.envs/.local/.postgresql
+    depends_on:
+      - rabbitmq
+      - postgres
+      - mailhog
+    networks:
+      - authors-api
+
+  flower:
+    build:
+      context: .
+      dockerfile: ./docker/local/django/Dockerfile
+    container_name: authors-flower
+    command: /start-flower.sh
+    volumes:
+      - flower_data:/data
+    env_file:
+      - ./.envs/.local/.django
+      - ./.envs/.local/.postgresql
+    ports:
+      - 5555:5555
+    depends_on:
+      - celery_worker
+      - postgres
     networks:
       - authors-api
 
@@ -67,3 +113,4 @@ volumes:
       media_volume:
       local_postgres_data: {}
       local_postgres_data_backups: {}
+      flower_data: {}
