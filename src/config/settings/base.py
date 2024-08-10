@@ -14,16 +14,22 @@ DJANGO_APPS = [
     "django.contrib.sites",
 ]
 THIRD_PARTY_APPS = [
+    "allauth.account",
+    "allauth.socialaccount",
+    "allauth",
     "corsheaders",
+    "dj_rest_auth.registration",
+    "dj_rest_auth",
     "django_countries",
     "djcelery_email",
     "drf_spectacular",
     "phonenumber_field",
     "rest_framework",
+    "rest_framewotk.authtoken",
 ]
 LOCAL_APPS = [
-    "v1.profiles",
     "v1.common",
+    "v1.profiles",
     "v1.users",
 ]
 INSTALLED_APPS = DJANGO_APPS + THIRD_PARTY_APPS + LOCAL_APPS

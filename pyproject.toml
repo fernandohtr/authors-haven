@@ -19,6 +19,9 @@ django-countries = "^7.6.1"
 django-phonenumber-field = "^8.0.0"
 phonenumbers = "^8.13.43"
 pillow = "^10.4.0"
+django-allauth = "^64.0.0"
+djangorestframework-simplejwt = "^5.3.1"
+dj-rest-auth = "^6.0.0"
 
 
 [tool.poetry.group.dev.dependencies]
