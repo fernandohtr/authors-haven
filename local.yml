@@ -100,7 +100,7 @@ services:
       - api
     volumes:
       - static_volume:/app/src/staticfiles
-      - static_volume:/app/src/mediafiles
+      - media_volume:/app/src/mediafiles
     networks:
       - authors-api
 
