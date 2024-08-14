@@ -12,7 +12,7 @@ logger = logging.getLogger(__name__)
 
 
 @receiver(post_save, sender=User)
-def creat_user_profile(sender, instance, created, **kwargs):
+def create_user_profile(sender, instance, created, **kwargs):
     if created:
         Profile.objects.create(user=instance)
         logger.info(f"{instance}'s profile has been created.")

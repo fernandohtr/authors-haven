@@ -8,8 +8,8 @@ CSRF_TRUSTED_ORIGINS = [
     "http://localhost:8080",
 ]
 EMAIL_BACKEND = "djcelery_email.backends.CeleryEmailBackend"
-EMAIL_HOST = os.environ.get("EMAIL_HOST", default="mailhog")
-EAMIL_PORT = os.environ.get("EMAIL_PORT")
+EMAIL_HOST = os.environ.get("EMAIL_HOST")
+EMAIL_PORT = os.environ.get("EMAIL_PORT")
 DEFAULT_FROM_EMAIL = "fernandohtr@gmail.com"
 DOMAIN = os.environ.get("DOMAIN")
 SITE_NAME = "Authors Haven"

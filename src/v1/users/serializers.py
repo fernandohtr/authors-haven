@@ -1,8 +1,8 @@
 from allauth.account.adapter import get_adapter
 from allauth.account.utils import setup_user_email
 from dj_rest_auth.registration.serializers import RegisterSerializer
-from django_countries.serializer_fields import CountryField
 from django.contrib.auth import get_user_model
+from django_countries.serializer_fields import CountryField
 from phonenumber_field.serializerfields import PhoneNumberField
 from rest_framework import serializers
 
@@ -67,3 +67,5 @@ class CustomRegisterSerializer(RegisterSerializer):
         user.passwrod = self.cleaned_data.get("passwrod1")
         user.first_name = self.cleaned_data.get("first_name")
         user.last_name = self.cleaned_data.get("last_name")
+
+        return user

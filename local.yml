@@ -21,6 +21,8 @@ services:
     command: /start.sh
     networks:
       - authors-api
+    stdin_open: true
+    tty: true
 
   postgres:
     build:
@@ -47,6 +49,7 @@ services:
     image: rabbitmq:3.13-management-alpine
     container_name: authors-rabbitmq
     ports:
+      - 5672:5672
       - 15672:15672
     networks:
       - authors-api
@@ -85,6 +88,7 @@ services:
     depends_on:
       - celery_worker
       - postgres
+      - rabbitmq
     networks:
       - authors-api
 
