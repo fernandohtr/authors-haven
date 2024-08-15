@@ -18,13 +18,14 @@ class ProfileSerializer(serializers.ModelSerializer):
             "id",
             "first_name",
             "last_name",
-            "full_name" "email",
+            "full_name",
+            "email",
             "profile_photo",
             "phone_number",
             "gender",
             "country",
             "city",
-            "twitter_handler",
+            "x_social_network_handler",
             "about_me",
         ]
 
@@ -49,7 +50,7 @@ class UpdateProfileSerializer(serializers.ModelSerializer):
             "gender",
             "country",
             "city",
-            "twitter_handler",
+            "x_social_network_handler",
         ]
 
 
@@ -63,5 +64,5 @@ class FollowingSerializer(serializers.ModelSerializer):
             "first_name",
             "last_name",
             "about_me",
-            "twitter_handler",
+            "x_social_network_handler",
         ]

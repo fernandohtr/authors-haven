@@ -22,6 +22,7 @@ LOCAL_URLS = [
         PasswordResetConfirmView.as_view(),
         name="password_reset_confirm",
     ),
+    path("api/v1/profiles/", include("v1.profiles.urls")),
 ]
 
 urlpatterns = DJANGO_URLS + DRF_SPECTACULAR_URLS + LOCAL_URLS

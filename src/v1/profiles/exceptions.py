@@ -1,7 +1,7 @@
-from rest_framework import APIException
+from rest_framework.exceptions import APIException
 
 
 class CantFollowYourself(APIException):
-    statu_code = 403
+    status_code = 403
     default_detail = "You can't follow yourself"
     default_code = "forbidden"
