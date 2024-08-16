@@ -28,6 +28,7 @@ THIRD_PARTY_APPS = [
     "phonenumber_field",
     "rest_framework.authtoken",
     "rest_framework",
+    "taggit",
 ]
 LOCAL_APPS = [
     "v1.articles",
