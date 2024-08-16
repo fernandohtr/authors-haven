@@ -1,5 +1,7 @@
 import django_filters
+
 from v1.articles.models import Article
+
 
 class ArticleFilter(django_filters.FilterSet):
     author = django_filters.CharFilter(field_name="author__first_name", lookup_expr="icontains")
@@ -17,4 +19,3 @@ class ArticleFilter(django_filters.FilterSet):
             "created_at",
             "updated_at",
         ]
-    
