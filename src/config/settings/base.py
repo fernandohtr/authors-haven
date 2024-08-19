@@ -32,6 +32,7 @@ THIRD_PARTY_APPS = [
 ]
 LOCAL_APPS = [
     "v1.articles",
+    "v1.bookmarks",
     "v1.common",
     "v1.profiles",
     "v1.ratings",
