@@ -29,7 +29,7 @@ class Migration(migrations.Migration):
                 ('slug', autoslug.fields.AutoSlugField(always_update=True, editable=False, populate_from='title', unique=True)),
                 ('description', models.CharField(max_length=255, verbose_name='Description')),
                 ('body', models.TextField(verbose_name='article content')),
-                ('banner_image', models.ImageField(default='/prodile_default.png', upload_to='', verbose_name='banner image')),
+                ('banner_image', models.ImageField(default='/profile_default.png', upload_to='', verbose_name='banner image')),
                 ('author', models.ForeignKey(on_delete=django.db.models.deletion.CASCADE, related_name='articles', to=settings.AUTH_USER_MODEL)),
                 ('tags', taggit.managers.TaggableManager(help_text='A comma-separated list of tags.', through='taggit.TaggedItem', to='taggit.Tag', verbose_name='Tags')),
             ],

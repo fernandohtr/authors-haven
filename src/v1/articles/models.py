@@ -16,7 +16,7 @@ class Article(TimeStampedModel):
     slug = AutoSlugField(populate_from="title", always_update=True, unique=True)
     description = models.CharField(verbose_name=_("Description"), max_length=255)
     body = models.TextField(verbose_name=_("article content"))
-    banner_image = models.ImageField(verbose_name=_("banner image"), default="/prodile_default.png")
+    banner_image = models.ImageField(verbose_name=_("banner image"), default="/profile_default.png")
     tags = TaggableManager()
 
     def __str__(self):
