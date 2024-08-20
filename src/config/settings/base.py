@@ -22,6 +22,8 @@ THIRD_PARTY_APPS = [
     "dj_rest_auth.registration",
     "dj_rest_auth",
     "django_countries",
+    "django_elasticsearch_dsl_drf",
+    "django_elasticsearch_dsl",
     "django_filters",
     "djcelery_email",
     "drf_spectacular",
