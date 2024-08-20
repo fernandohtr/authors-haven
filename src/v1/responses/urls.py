@@ -4,5 +4,5 @@ from v1.responses.views import ResponseUpdateDeleteView, ResponsListCreateView
 
 urlpatterns = [
     path("articles/<uuid:article_id>/", ResponsListCreateView.as_view(), name="article_responses"),
-    path("<uuid:article_id>/", ResponseUpdateDeleteView.as_view(), name="response_detail"),
+    path("<uuid:id>/", ResponseUpdateDeleteView.as_view(), name="response_detail"),
 ]

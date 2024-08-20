@@ -42,4 +42,4 @@ class ResponseUpdateDeleteView(generics.RetrieveUpdateDestroyAPIView):
 
         if user != response.user:
             raise PermissionDenied("You do not have permission to delete this response.")
-        instance.save()
+        instance.delete()
