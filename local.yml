@@ -18,6 +18,7 @@ services:
       - postgres
       - mailhog
       - rabbitmq
+      - elasticsearch
     command: /start.sh
     networks:
       - authors-api
@@ -37,6 +38,16 @@ services:
     networks:
       - authors-api
 
+  elasticsearch:
+    image: elasticsearch:8.15.0
+    container_name: authors-elasticsearch
+    environment:
+      - discovery.type=single-node
+    ports:
+      - 9200:9200
+    networks:
+      - authors-api
+    
   mailhog:
     image: mailhog/mailhog:v1.0.1
     container_name: authors-mailhog
