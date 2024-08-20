@@ -26,6 +26,7 @@ LOCAL_URLS = [
     path("api/v1/articles/", include("v1.articles.urls")),
     path("api/v1/ratings/", include("v1.ratings.urls")),
     path("api/v1/bookmarks/", include("v1.bookmarks.urls")),
+    path("api/v1/responses/", include("v1.responses.urls")),
 ]
 
 urlpatterns = DJANGO_URLS + DRF_SPECTACULAR_URLS + LOCAL_URLS
