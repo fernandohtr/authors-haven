@@ -1,6 +1,6 @@
 from rest_framework import serializers
 
-from v1.articles.models import Article, ArticleView
+from v1.articles.models import Article, ArticleView, Clap
 from v1.bookmarks.models import Bookmark
 from v1.bookmarks.serializers import BookmarkSerializer
 from v1.profiles.serializers import ProfileSerializer
@@ -33,6 +33,7 @@ class ArticleSerializer(serializers.ModelSerializer):
     average_rating = serializers.ReadOnlyField()
     bookmarks = serializers.SerializerMethodField()
     bookmarks_count = serializers.SerializerMethodField()
+    claps_count = serializers.SerializerMethodField()
     created_at = serializers.SerializerMethodField()
     updated_at = serializers.SerializerMethodField()
 
@@ -48,6 +49,9 @@ class ArticleSerializer(serializers.ModelSerializer):
 
     def get_bookmarks_count(self, obj):  # noqa
         return Bookmark.objects.filter(article=obj).count()
+
+    def get_claps_count(self, obj):  # noqa
+        return obj.claps.count()
 
     def get_banner_image(self, obj):  # noqa
         return obj.banner_image.url
@@ -98,6 +102,20 @@ class ArticleSerializer(serializers.ModelSerializer):
             "average_rating",
             "bookmarks",
             "bookmarks_count",
+            "claps_count",
             "created_at",
             "updated_at",
+        ]
+
+
+class ClapSerializer(serializers.ModelSerializer):
+    article_title = serializers.CharField(source="article.title", read_only=True)
+    user_first_name = serializers.CharField(source="user.first_name", read_only=True)
+
+    class Meta:
+        model = Clap
+        fields = [
+            "id",
+            "user_first_name",
+            "article_title",
         ]

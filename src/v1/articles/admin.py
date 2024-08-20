@@ -1,6 +1,6 @@
 from django.contrib import admin
 
-from v1.articles.models import Article, ArticleView
+from v1.articles.models import Article, ArticleView, Clap
 
 
 @admin.register(Article)
@@ -49,3 +49,15 @@ class ArticleViewAdmin(admin.ModelAdmin):
         "user",
         "viewer_ip",
     ]
+
+
+@admin.register(Clap)
+class ClapAdmin(admin.ModelAdmin):
+    list_display = [
+        "pkid",
+        "id",
+        "user",
+        "article",
+    ]
+    list_display_links = ["id", "user"]
+    list_filter = ["created_at", "updated_at"]
