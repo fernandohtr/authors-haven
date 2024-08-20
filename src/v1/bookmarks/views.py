@@ -41,12 +41,12 @@ class BookmarkDestroyView(generics.DestroyAPIView):
         article_id = self.kwargs.get("article_id")
 
         try:
-            UUID(article_id, version=4)
+            UUID(str(article_id), version=4)
         except ValueError:
             raise ValidationError("Invalid article_id provided")
 
         try:
-            bookmark = Bookmark.objects.get(user=user, article_id=article_id)
+            bookmark = Bookmark.objects.get(user=user, article__id=article_id)
         except Bookmark.DoesNotExist:
             raise NotFound("Bookmark not found or it doesn't belong to you.")
 
