@@ -39,6 +39,7 @@ LOCAL_APPS = [
     "v1.profiles",
     "v1.ratings",
     "v1.responses",
+    "v1.search",
     "v1.users",
 ]
 INSTALLED_APPS = DJANGO_APPS + THIRD_PARTY_APPS + LOCAL_APPS
@@ -166,6 +167,11 @@ SPECTACULAR_SETTINGS = {
     "DESCRIPTION": "Authors Haven description",
     "VERSION": "0.1.0",
     "SERVE_INCLUDE_SCHEMA": False,
+}
+ELASTICSEARCH_DSL = {
+    "default": {
+        "hosts": "elasticsearch:9200"
+    }
 }
 LOGGING = {
     "version": 1,
