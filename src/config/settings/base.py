@@ -168,11 +168,7 @@ SPECTACULAR_SETTINGS = {
     "VERSION": "0.1.0",
     "SERVE_INCLUDE_SCHEMA": False,
 }
-ELASTICSEARCH_DSL = {
-    "default": {
-        "hosts": "elasticsearch:9200"
-    }
-}
+ELASTICSEARCH_DSL = {"default": {"hosts": "elasticsearch:9200"}}
 LOGGING = {
     "version": 1,
     "disable_existing_loggers": False,
