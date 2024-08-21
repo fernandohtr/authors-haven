@@ -794,23 +794,21 @@ vectorstore-mmr = ["numpy (>=1)", "simsimd (>=3)"]
 
 [[package]]
 name = "elasticsearch-dsl"
-version = "8.15.1"
+version = "8.12.0"
 description = "Python client for Elasticsearch"
 optional = false
-python-versions = ">=3.8"
+python-versions = ">=3.7"
 files = [
-    {file = "elasticsearch_dsl-8.15.1-py3-none-any.whl", hash = "sha256:318dbad085670e2f474cc3d19977ba2379cc3e78cb6ba544ff82b8b370227db1"},
-    {file = "elasticsearch_dsl-8.15.1.tar.gz", hash = "sha256:2f89a9465f34507540894ceafba1fa8472db4a91596dbf25ea59be37791cf16d"},
+    {file = "elasticsearch-dsl-8.12.0.tar.gz", hash = "sha256:ce32b8529888a97be911531e7590816cf3b1f608263eff6fb75aa7106e233c88"},
+    {file = "elasticsearch_dsl-8.12.0-py3-none-any.whl", hash = "sha256:2ea9e6ded64d21a8f1ef72477a4d116c6fbeea631ac32a2e2490b9c0d09a99a6"},
 ]
 
 [package.dependencies]
 elasticsearch = ">=8.0.0,<9.0.0"
 python-dateutil = "*"
-typing-extensions = "*"
 
 [package.extras]
-async = ["elasticsearch[async] (>=8.0.0,<9.0.0)"]
-develop = ["coverage", "elasticsearch[async]", "mypy", "nltk", "pyright", "pytest", "pytest-asyncio", "pytest-cov", "pytest-mock", "pytz", "sentence-transformers", "sphinx (>2)", "sphinx-rtd-theme (>0.5)", "tqdm", "types-python-dateutil", "types-pytz", "types-tqdm", "unasync"]
+develop = ["coverage", "pytest", "pytest-cov", "pytest-mock", "pytz", "sphinx (>2)", "sphinx-rtd-theme (>0.5)"]
 
 [[package]]
 name = "flower"
@@ -1623,4 +1621,4 @@ files = [
 [metadata]
 lock-version = "2.0"
 python-versions = "^3.12"
-content-hash = "f9e467077569bf0bb59d62a7fbcdfa3c3efd84caa5144440b205fe7deac17b7f"
+content-hash = "1aac7ac245437a3a9af7889a05fa6b7d36e275bafd46b6462f2d5ebc81936cc8"
