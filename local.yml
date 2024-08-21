@@ -39,7 +39,7 @@ services:
       - authors-api
 
   elasticsearch:
-    image: elasticsearch:8.15.0
+    image: elasticsearch:7.17.23
     container_name: authors-elasticsearch
     environment:
       - discovery.type=single-node
