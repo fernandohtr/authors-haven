@@ -22,10 +22,10 @@ class ArticleDocument(Document):
         fields = ["created_at"]
 
     def prepare_author_first_name(self, instance):  # noqa
-        return instance.author_first_name
+        return instance.author.first_name
 
     def prepare_author_last_name(self, instance):  # noqa
-        return instance.author_last_name
+        return instance.author.last_name
 
     def prepare_tags(self, instance):  # noqa
         return [tag.name for tag in instance.tags.all()]
