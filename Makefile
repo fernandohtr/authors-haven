@@ -59,3 +59,9 @@ list-backup:
 
 restore-backup:
 	${DOCKER_LOCAL} exec postgres restore.sh $(BACKUP_FILE)
+
+create-index:
+	${DOCKER_LOCAL} exec api python src/manage.py search_index --create 
+
+populate-index:
+	${DOCKER_LOCAL} exec api python src/manage.py search_index --populate
