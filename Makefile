@@ -65,3 +65,9 @@ create-index:
 
 populate-index:
 	${DOCKER_LOCAL} exec api python src/manage.py search_index --populate
+
+test:
+	${DOCKER_LOCAL} run --rm api pytest -p no:warnings --cov=src/ -v
+
+test-html:
+	${DOCKER_LOCAL} run --rm api pytest -p no:warnings --cov=src/ --cov-report html
