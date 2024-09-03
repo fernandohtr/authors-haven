@@ -1,5 +1,4 @@
-# TODO change this in production
-from config.settings.local import DEFAULT_FROM_EMAIL
+from django.conf import settings
 from django.contrib.auth import get_user_model
 from django.core.mail import send_mail
 from rest_framework import generics, status
@@ -121,7 +120,7 @@ class FollowAPIView(APIView):
                 f"Hi there, {profile.user.first_name}!! The user "
                 f"{user_profile.user.first_name} {user_profile.user.last_name} now follows you"
             )
-            from_email = DEFAULT_FROM_EMAIL
+            from_email = settings.DEFAULT_FROM_EMAIL
             recipient_list = [profile.user.email]
             send_mail(
                 subject=subject,
