@@ -1,0 +1,79 @@
+services:
+  api: &api
+    container_name: authors-api
+    image: authors-api
+    restart: always
+    volumes:
+      - static_volume:/app/src/staticfiles
+      - media_volume:/app/src/mediafiles
+    env_file:
+      - ./.envs/.production/.django
+      - ./.envs/.production/.postgresql
+    depends_on:
+      - postgres
+      - rabbitmq
+      - elasticsearch
+    command: /start.sh
+    networks:
+      - reverseproxy_nw
+
+  postgres:
+    container_name: authors-postgres
+    image: authors-postgres
+    volumes:
+      - production_postgres_data:/var/lib/postgresql/data
+      - production_postgres_data_backups:/backups
+    env_file:
+      - ./.envs/.production/.postgresql
+    networks:
+      - reverseproxy_nw
+
+  elasticsearch:
+    image: elasticsearch:7.17.23
+    container_name: authors-elasticsearch
+    environment:
+      - discovery.type=single-node
+    ports:
+      - 9200:9200
+    networks:
+      - reverseproxy_nw
+
+  rabbitmq:
+    image: rabbitmq:3.13-management-alpine
+    container_name: authors-rabbitmq
+    ports:
+      - 5672:5672
+      - 15672:15672
+    networks:
+      - reverseproxy_nw
+
+  celery_worker:
+    <<: *api
+    container_name: authors-celery-worker
+    image: authors-celery-worker
+    command: /start-celery-worker.sh
+    networks:
+      - reverseproxy_nw
+
+  flower:
+    <<: *api
+    container_name: authors-flower
+    image: authors-flower
+    command: /start-flower.sh
+    volumes:
+      - flower_data:/data
+    ports:
+      - 5555:5555
+    networks:
+      - reverseproxy_nw
+
+networks:
+  reverseproxy_nw:
+    external: true
+
+volumes:
+      static_volume: {}
+      media_volume: {}
+      production_postgres_data: {}
+      production_postgres_data_backups: {}
+      flower_data: {}
