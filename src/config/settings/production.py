@@ -9,7 +9,7 @@ ADMINS = [
 ]
 CSRF_TRUSTED_ORIGINS = ["https://authorshaven.fernandohtr.com"]
 SECRET_KEY = os.environ.get("DJANGO_SECRET_KEY")
-ALLOWED_HOSTS = os.environ.get("DJANGO_ALLOWED_HOSTS")
+ALLOWED_HOSTS = [".authorshaven.fernandohtr.com",]
 ADMIN_URL = os.environ.get("DJANGO_ADMIN_URL")
 SECURE_PROXY_SSL_HEADER = ("HTTP_X_FORWARDED_PROTO", "https")
 SECURE_SSL_REDIRECT = True
@@ -43,7 +43,7 @@ LOGGING = {
     "handlers": {
         "mail_admins": {
             "level": "ERROR",
-            "filters": ["required_debug_false"],
+            "filters": ["require_debug_false"],
             "class": "django.utils.log.AdminEmailHandler",
         },
         "console": {
